@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width:50px;
+            height:100px;
+            border:1px solid #ccc;
+            text-align: center;
+            margin:10px;
+        }
+        /* .two{
+            position: relative;
+            top:30px;
+            left:30px;
+        } */
+        /* .two{
+            position: absolute; 
+        } */
+    </style>
+</head>
+<body>
+    <!-- 定位相关知识：position -->
+    <!-- 
+        static，默认值。位置设置为static的元素，它始终会处于文档流给予的位置。
+        inherit，规定应该从父元素继承 position属性的值。但是任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”
+        fixed，脱离文档流，生成绝对定位的元素。默认情况下，可定位于相对于浏览器窗口的指定坐标。但当祖先元素具有transform属性且不为none时，就会相对于祖先元素指定坐标，而不是浏览器窗口
+        absolute，脱离文档流，生成绝对定位的元素，相对于距该元素最近的已定位的祖先元素(祖先元素只要设置了值不为position:static之外的值，都视为已定位 未定位参照物则为body)进行定位
+        relative，不脱离文档流，生成相对定位的元素，相对于该元素在文档中的初始位置进行定位。
+
+        当仅给一个元素设置absolute时(未设置left top等) 元素已经脱离文档流 但还处于之前所在位置 只是margin不合并了
+    -->
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+</body>
+</html>

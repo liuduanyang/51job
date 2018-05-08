@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+    
+function post(){
+    return new Promise((resolve)=>{
+        let xhr=new XMLHttpRequest();
+        xhr.open('GET','http://127.0.0.1:8898/app.js');
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                console.log(xhr.responseText);
+                resolve();
+            }
+        }
+        xhr.send();
+    })
+}
+
+async function get(){
+    try{
+        const res=await post();
+            console.log(res);
+    }catch(err){
+            console.log(err); 
+    }
+}
+get();
+
+</script>
+</body>
+</html>

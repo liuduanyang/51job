@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: yellowgreen;
+            width:100px;
+            height:100px;
+        }
+    </style>
+    </head>
+    <body>
+        <a id="lin" href="http://www.baidu.com">百度</a>
+        <button id="but" type="">按钮</button>
+
+        <ul id="ul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <script>
+            // DOM标准的事件模型（DOM事件流）包括三个阶段：事件捕获阶段、目标阶段、事件冒泡阶段
+
+            document.querySelector("#lin").onclick=function(e){
+                e.preventDefault();     // 取消a标签默认跳转链接操作
+            }
+
+            document.querySelector("#but").addEventListener('click',function(e){
+                console.log('button');
+                e.stopPropagation();    // 用于立即停止事件在 DOM 层次中的传播，即取消进一步的事件 捕获或冒泡
+            },false);
+            document.body.addEventListener('click',function(e){
+                // console.log(this);
+                // console.log(e.currentTarget);
+                // console.log(e.target);
+                console.log('body');
+            },false);
+
+            
+            // 只有在事件处理程序执行期间，event 对象才会存在；一旦事件处理程序执行完成，event对象就会被销毁。 
+
+            // 事件委托
+            // 事件委托适用于：1.需要给大量元素绑定事件处理函数时  2.需要动态绑定事件时
+            document.querySelector("#ul").addEventListener("click",function(e){
+                var src=e.target;
+                if(src.nodeName.toLowerCase()==="li"){
+                    alert(src.innerHTML);
+                }
+                e.stopPropagation();
+            },false);
+            // 事件委托参考：https://www.cnblogs.com/liugang-vip/p/5616484.html
+        </script>
+    </body>
+</html>
